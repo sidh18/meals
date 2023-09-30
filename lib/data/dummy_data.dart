@@ -9,12 +9,9 @@ const availableCategories={
    ),
    Category(id: 'c2',
    title: 'Quick and easy',
-   color:Colors.purple,
-   ),
-   Category(id: 'c1',
-   title: 'Italian',
    color:Colors.red,
    ),
+   
    Category(id: 'c3',
    title: 'Hamburgers',
    color:Colors.orange,
