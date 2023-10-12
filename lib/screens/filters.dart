@@ -12,7 +12,9 @@ enum Filter{
 }
 
 class FiltersScreen extends StatefulWidget {
-  const FiltersScreen({super.key});
+  const FiltersScreen({super.key,required this.currentFilters});
+
+  final Map<Filter,bool>currentFilters;
 
   @override
   State<StatefulWidget> createState() {
@@ -26,6 +28,16 @@ class _FiltersScreenState extends State<FiltersScreen> {
   var _lactoseFreeFilterSet = false;
   var _vegetarianFreeFilterSet = false;
   var _veganFreeFilterSet = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _gluttenFreeFilterSet=widget.currentFilters[Filter.glutenFree]!;
+    _lactoseFreeFilterSet=widget.currentFilters[Filter.lactoseFree]!;
+    _vegetarianFreeFilterSet=widget.currentFilters[Filter.vegetarian]!;
+    _veganFreeFilterSet=widget.currentFilters[Filter.vegan]!;
+
+  }
   
 
 
@@ -111,13 +123,13 @@ class _FiltersScreenState extends State<FiltersScreen> {
                 });
               },
               title: Text(
-                'Vegetarian-Free',
+                'Vegetarian',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
               ),
               subtitle: Text(
-                'only include Vegetarian-free meals',
+                'only include Vegetarian meals',
                 style: Theme.of(context).textTheme.labelMedium!.copyWith(
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
@@ -134,13 +146,13 @@ class _FiltersScreenState extends State<FiltersScreen> {
                 });
               },
               title: Text(
-                'Vegan-Free',
+                'Vegan',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
               ),
               subtitle: Text(
-                'only include Vegan-free meals',
+                'only include Vegan meals',
                 style: Theme.of(context).textTheme.labelMedium!.copyWith(
                       color: Theme.of(context).colorScheme.onBackground,
                     ),
