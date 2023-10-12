@@ -17,6 +17,9 @@ final theme=ThemeData(
 
 void main(){
   runApp(const App());
+  
+
+
 }
 
 class App extends StatelessWidget{
@@ -25,6 +28,7 @@ class App extends StatelessWidget{
   @override
   Widget build(BuildContext){
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: theme,
       home:const TabsScreen(),
     );
